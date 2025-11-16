@@ -1,4 +1,4 @@
-//? Problem 01:
+//! Problem 01:
 
 const formatValue = (
    value: string | number | boolean
@@ -20,7 +20,7 @@ const result3 = formatValue(true);
 
 // console.log(result1, result2, result3);
 
-//? Problem 02:
+//! Problem 02:
 const getLength = (item: string | number[]): string | number => {
    if (typeof item === "string" || Array.isArray(item)) {
       return item.length;
@@ -33,3 +33,28 @@ const output1 = getLength("typescript");
 const output2 = getLength([10, 20, 30, 40]);
 
 // console.log(output1, output2);
+
+//! Problem 03:
+class Person {
+   name: string;
+   age: number;
+
+   constructor(name: string, age: number) {
+      this.name = name;
+      this.age = age;
+   }
+
+   getDetails() {
+      return `'Name: ${this.name}, Age: ${this.age}'`;
+   }
+}
+
+const person1 = new Person("John Doe", 30);
+// console.log(person1.getDetails());
+
+const person2 = new Person("Alice", 25);
+// console.log(person2.getDetails());
+
+
+
+
