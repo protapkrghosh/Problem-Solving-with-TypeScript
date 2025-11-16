@@ -20,5 +20,16 @@ const result3 = formatValue(true);
 
 // console.log(result1, result2, result3);
 
+//? Problem 02:
+const getLength = (item: string | number[]): string | number => {
+   if (typeof item === "string" || Array.isArray(item)) {
+      return item.length;
+   } else {
+      return "Invalid type";
+   }
+};
 
+const output1 = getLength("typescript");
+const output2 = getLength([10, 20, 30, 40]);
 
+// console.log(output1, output2);
