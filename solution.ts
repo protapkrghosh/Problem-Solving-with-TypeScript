@@ -1,4 +1,4 @@
-//! Problem 01:
+//! Problem 01: ✅
 
 const formatValue = (
    value: string | number | boolean
@@ -20,7 +20,7 @@ const result3 = formatValue(true);
 
 // console.log(result1, result2, result3);
 
-//! Problem 02:
+//! Problem 02: ✅
 const getLength = (item: string | number[]): string | number => {
    if (typeof item === "string" || Array.isArray(item)) {
       return item.length;
@@ -34,7 +34,7 @@ const output2 = getLength([10, 20, 30, 40]);
 
 // console.log(output1, output2);
 
-//! Problem 03:
+//! Problem 03: ✅
 class Person {
    name: string;
    age: number;
@@ -55,7 +55,7 @@ const person1 = new Person("John Doe", 30);
 const person2 = new Person("Alice", 25);
 // console.log(person2.getDetails());
 
-//! Problem 04:
+//! Problem 04: ✅
 
 type Books = {
    title: string;
@@ -75,4 +75,28 @@ const books = [
 
 const filteredResult = filterByRating(books);
 // console.log(filteredResult);
+
+//! Problem 05: ✅
+interface ActiveUser {
+   id: number;
+   name: string;
+   email: string;
+   isActive: boolean;
+}
+
+const filterActiveUsers = (users: ActiveUser[]): ActiveUser[] => {
+   const currentUser = users.filter((user) => user.isActive === true);
+   return currentUser;
+};
+
+const users = [
+   { id: 1, name: "Rakib", email: "rakib@example.com", isActive: true },
+   { id: 2, name: "Asha", email: "asha@example.com", isActive: false },
+   { id: 3, name: "Rumi", email: "rumi@example.com", isActive: true },
+];
+
+const finalUser = filterActiveUsers(users);
+console.log(finalUser);
+
+
 
