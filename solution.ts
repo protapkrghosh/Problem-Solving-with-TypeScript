@@ -55,6 +55,24 @@ const person1 = new Person("John Doe", 30);
 const person2 = new Person("Alice", 25);
 // console.log(person2.getDetails());
 
+//! Problem 04:
 
+type Books = {
+   title: string;
+   rating: number;
+};
 
+const filterByRating = (item: Books[]): Books[] => {
+   const filterBooks = item.filter((item) => item.rating >= 4);
+   return filterBooks;
+};
+
+const books = [
+   { title: "Book A", rating: 4.5 },
+   { title: "Book B", rating: 3.2 },
+   { title: "Book C", rating: 5.0 },
+];
+
+const filteredResult = filterByRating(books);
+// console.log(filteredResult);
 
