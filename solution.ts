@@ -56,7 +56,6 @@ const person2 = new Person("Alice", 25);
 // console.log(person2.getDetails());
 
 //! Problem 04: ✅
-
 type Books = {
    title: string;
    rating: number;
@@ -122,4 +121,33 @@ const myBook: Book = {
 const detailsBook = printBookDetails(myBook);
 // console.log(detailsBook);
 
+//! Problem 08: ✅
+interface ProductInfo {
+   name: string;
+   price: number;
+   quantity: number;
+   discount?: number;
+}
 
+const calculateTotalPrice = (products: ProductInfo[]): number => {
+   const productPrice = products.reduce((total, product) => {
+      const totalPrice = product.price * product.quantity;
+
+      const discountedPrice = product.discount
+         ? totalPrice - (totalPrice * product.discount) / 100
+         : totalPrice;
+
+      return total + discountedPrice;
+   }, 0);
+
+   return productPrice;
+};
+
+const products = [
+   { name: "Pen", price: 10, quantity: 2 },
+   { name: "Notebook", price: 25, quantity: 3, discount: 10 },
+   { name: "Bag", price: 50, quantity: 1, discount: 20 },
+];
+
+const totalPrice = calculateTotalPrice(products);
+// console.log(totalPrice);
