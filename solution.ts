@@ -1,5 +1,3 @@
-//! Problem 01: ✅
-
 const formatValue = (
    value: string | number | boolean
 ): string | number | boolean => {
@@ -18,9 +16,6 @@ const result1 = formatValue("hello");
 const result2 = formatValue(5);
 const result3 = formatValue(true);
 
-// console.log(result1, result2, result3);
-
-//! Problem 02: ✅
 const getLength = (item: string | number[]): string | number => {
    if (typeof item === "string" || Array.isArray(item)) {
       return item.length;
@@ -32,9 +27,6 @@ const getLength = (item: string | number[]): string | number => {
 const output1 = getLength("typescript");
 const output2 = getLength([10, 20, 30, 40]);
 
-// console.log(output1, output2);
-
-//! Problem 03: ✅
 class Person {
    name: string;
    age: number;
@@ -50,12 +42,8 @@ class Person {
 }
 
 const person1 = new Person("John Doe", 30);
-// console.log(person1.getDetails());
-
 const person2 = new Person("Alice", 25);
-// console.log(person2.getDetails());
 
-//! Problem 04: ✅
 type Books = {
    title: string;
    rating: number;
@@ -73,9 +61,7 @@ const books = [
 ];
 
 const filteredResult = filterByRating(books);
-// console.log(filteredResult);
 
-//! Problem 05: ✅
 interface ActiveUser {
    id: number;
    name: string;
@@ -95,9 +81,7 @@ const users = [
 ];
 
 const finalUser = filterActiveUsers(users);
-// console.log(finalUser);
 
-//! Problem 06: ✅
 interface Book {
    title: string;
    author: string;
@@ -119,9 +103,45 @@ const myBook: Book = {
 };
 
 const detailsBook = printBookDetails(myBook);
-// console.log(detailsBook);
 
-//! Problem 08: ✅
+function getUniqueValues(
+   arr1: (number | string)[],
+   arr2: (number | string)[]
+): (number | string)[] {
+   const result: (number | string)[] = [];
+
+   function currentValue(
+      value: number | string,
+      array: (number | string)[]
+   ): boolean {
+      for (let i = 0; i < array.length; i++) {
+         if (array[i] === value) {
+            return true;
+         }
+      }
+      return false;
+   }
+
+   for (let i = 0; i < arr1.length; i++) {
+      if (!currentValue(arr1[i], result)) {
+         result[result.length] = arr1[i];
+      }
+   }
+
+   for (let i = 0; i < arr2.length; i++) {
+      if (!currentValue(arr2[i], result)) {
+         result[result.length] = arr2[i];
+      }
+   }
+
+   return result;
+}
+
+const array1 = [1, 2, 3, 4, 5];
+const array2 = [3, 4, 5, 6, 7];
+
+const uniqueResult = getUniqueValues(array1, array2);
+
 interface ProductInfo {
    name: string;
    price: number;
@@ -150,4 +170,3 @@ const products = [
 ];
 
 const totalPrice = calculateTotalPrice(products);
-// console.log(totalPrice);
