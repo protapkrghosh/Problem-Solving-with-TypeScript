@@ -21,9 +21,10 @@
 
 ### ২. `keyof` কীওয়ার্ডের ব্যবহার কী? একটি উদাহরণ দাও। <br>
 
-`keyof` ব্যবহার করে আমরা কোনো object type-এর keys গুলোকে একটা union টাইপ হিসেবে পাই। মানে, object-এর property নামগুলোকে টাইপ হিসেবে ব্যবহার করা যায়।
+keyof ব্যবহার করে আমরা কোনো object type-এর keys গুলোকে একটা union টাইপ হিসেবে পাই। মানে, object-এর property নামগুলোকে টাইপ হিসেবে ব্যবহার করা যায়।
 
 ```
+// keyof
 interface User {
   name: string;
   age: number;
@@ -43,6 +44,43 @@ type UserKeys = keyof User;
 <br>
 
 ### ৪. `enums` এর ব্যবহার কী? একটি numeric এবং string enum এর উদাহরণ দাও। <br>
+
+Enums হলো একটি বিশেষ ডেটা টাইপ যা নির্দিষ্ট মানগুলোর একটি সেট ডিফাইন করতে ব্যবহার করা হয়।
+Enums দুই ধরনের হয়ে থাকে। যেমন:
+
+1. Numeric Enums
+2. String Enums
+
+<h4>Numeric Enums</h4>
+সাধারণত Enums মান গুলো numeric ভাবে শুরু হয়। প্রথম মানের জন্য ০ নির্ধারণ করা হয়, এবং পরবর্তী মানগুলি একের পর এক করে বৃদ্ধি পেতে থাকে। <br> <br>
+
+```
+// Numeric enums
+enum Direction {
+   Up, // 0
+   Down, // 1
+   Left, // 2
+   Right, // 3
+}
+
+const result: Direction = Direction.Left;
+console.log(result); // 2
+```
+
+<h4>String Enums</h4>
+String Enums এর প্রতিটি মান একটি স্ট্রিং হয়ে থাকে। String Enums সাধারণত স্ট্রিং মান রাখতে ব্যবহার করা হয়। <br> <br>
+
+```
+// String enums
+enum Fruits {
+  Apple = "APPLE",
+  Banana = "BANANA",
+  Mango = "MANGO"
+}
+
+const favoriteFruit: Fruits = Fruits.Mango;
+console.log(favoriteFruit); // "MANGO"
+```
 
 <br>
 
@@ -68,5 +106,5 @@ interface Employee {
   employeeId: number;
 }
 
-type Staff = Person & Employee;
+type Team = Person & Employee;
 ```
