@@ -36,9 +36,9 @@ type UserKeys = keyof User;
 
 ### ৩. `any`, `unknown` এবং `never` টাইপের মধ্যে পার্থক্য ব্যাখ্যা করো। <br>
 
--  **any:** টাইপ যেকোনো কিছু হতে পারে, TypeScript একদম চেক করবে না।
+-  **any:** টাইপ যেকোনো কিছু ব্যবহার করা যেতে পারে, এর জন্য TypeScript কোন এরর দেয় না।
 -  **unknown:** এটাও টাইপ যেকোনো কিছু হতে পারে, কিন্তু ব্যবহার করার আগে টাইপ চেক করতে হবে।
--  **never:** যেসব function কখনো return করে না (throw error বা infinite loop)
+-  **never:** যেসব function কখনো return করবে না। যেমন: কোনো ফাংশন error থ্রো করে বা infinite loop এ চলতে থাকবে।
 
 <br>
 
@@ -47,3 +47,26 @@ type UserKeys = keyof User;
 <br>
 
 ### ৫. `union` এবং `intersection` টাইপ ব্যবহারের একটি উদাহরণ দাও। <br>
+
+-  **union :** union মূলত অথবা এর কাজ করে থাকে। Union এর ক্ষেত্রে একাধিক টাইপ থেকে যেকোনো একটিকে ব্যবহার করা যায় যেমন: string | number
+
+-  **Intersection :** Intersection মূলত এবং এর কাজ করে থাকে। এটি একাধিক টাইপকে একসাথে কম্বাইন করে ব্যবহার করা যায়। Intersection টাইপের সিনট্যাক্স হলো Type1 & Type2
+
+```
+// Union
+id = 'Ten';
+id = 100;
+let id: string | number;
+
+
+// Intersection
+interface Person {
+  name: string;
+}
+
+interface Employee {
+  employeeId: number;
+}
+
+type Staff = Person & Employee;
+```
